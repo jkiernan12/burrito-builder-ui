@@ -1,0 +1,12 @@
+.order {
+  border: 1px solid black;
+  display: inline-block;
+  margin: 10px;
+  background-color: #FFF;
+}
+
+.ingredient-list {
+  list-style-type: none;
+  padding: 0;
+  width: 150px;
+}
