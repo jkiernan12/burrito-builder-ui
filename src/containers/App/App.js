@@ -7,7 +7,7 @@ import { getOrders } from '../../apiCalls';
 import Orders from '../../components/Orders/Orders';
 import OrderForm from '../../components/OrderForm/OrderForm';
 
-export class App extends Component {
+class App extends Component {
   constructor(props) {
     super();
     this.props = props;
@@ -26,22 +26,21 @@ export class App extends Component {
           <h1>Burrito Builder</h1>
           <OrderForm />
         </header>
-        
+
         <Orders orders={this.props.orders}/>
       </main>
     );
   }
 }
 
-export const mapStateToProps = ({ orders }) => ({
+const mapStateToProps = ({ orders }) => ({
   orders
 });
 
-export const mapDispatchToProps = dispatch => (
+const mapDispatchToProps = dispatch => (
   bindActionCreators({
     setOrders,
   }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-

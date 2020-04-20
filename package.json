@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-redux": "^7.1.1",
-    "react-scripts": "3.2.0",
+    "react-scripts": "3.4.1",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -32,13 +32,8 @@
     ]
   },
   "devDependencies": {
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
-    "enzyme-to-json": "^3.4.3"
-  },
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.2",
+    "jest-environment-jsdom-sixteen": "^1.0.3"
   }
 }
