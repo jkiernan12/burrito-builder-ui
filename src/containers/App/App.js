@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { setOrders } from '../../actions';
 import { getOrders } from '../../apiCalls';
 import Orders from '../../components/Orders/Orders';
@@ -38,9 +37,9 @@ const mapStateToProps = ({ orders }) => ({
 });
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({
-    setOrders,
-  }, dispatch)
+  {
+    setOrders: (orders) => dispatch(setOrders(orders))
+  }
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
