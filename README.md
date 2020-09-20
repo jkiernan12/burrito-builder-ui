@@ -17,17 +17,21 @@ Be sure to setup the [backend repo for Burrito Builder](https://github.com/turin
 
 Right now the app has a bug somewhere in it. Run the dev server and fix whatever bug is causing the app to crash. 
 
-### Iteration 2 
+### Iteration 2
+
+Connect the front end to the backend so that when the app loads all existing orders from the server.
+
+### Iteration 3 
 
 Add functionality to allow submission of the form when there is at least once ingredient, and a name added to the order. If one of these two things is missing, you should not be able to submit an order. If the order is submitted, a POST request should be made to the server.
 
 New orders should only be displayed on the page IF the POST request is successful. On refresh, the new order should persist on the page. (You shouldn't _need_ to refresh the page to see the new order, though.)
 
-### Iteration 3
+### Iteration 4
 
 Write tests for the `OrderForm` and `App` components.
 
-### Iteration 4
+### Iteration 5
 
 Add delete functionality for an order (the server-side endpoint exists already) so that when the order is ready it can be removed from the ticketing system.
 
