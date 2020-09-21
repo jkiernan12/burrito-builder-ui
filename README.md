@@ -19,7 +19,7 @@ Right now the app has a bug somewhere in it. Run the dev server and fix whatever
 
 ### Iteration 2
 
-Connect the front end to the backend so that when the app loads, all existing orders from the server.
+Connect the front end to the backend so that when the app loads, all existing orders are fetched from the server.
 
 ### Iteration 3 
 
