@@ -11,11 +11,11 @@ Our company is building a prototype ticketing system for a local burrito shop. U
 
 Be sure to setup the [backend repo for Burrito Builder](https://github.com/turingschool-examples/burrito-builder-api) to be able to retrieve and save burrito orders.
 
-## Iterations (new)
+## Iterations 
 
 ### Iteration 1
 
-Right now the app has a bug somewhere in it. Run the dev server and fix whatever bug is causing the app to crash. 
+Right now the app has serveral bugs in it. Run the dev server and fix whatever bugs are causing the app to crash. 
 
 ### Iteration 2
 
