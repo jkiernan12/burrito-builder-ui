@@ -29,9 +29,9 @@ New orders should only be displayed on the page IF the POST request is successfu
 
 ### Iteration 4
 
-Write tests for the `OrderForm` and `App` components.
+Write tests for the `OrderForm` and `App` views and user flows.
 
-## Extensions
+## Extensions (only to be attempted if all prior iterations are complete)
 
 * Add delete functionality for an order (the server-side endpoint exists already) so that when the order is ready it can be removed from the ticketing system.
 * Test the deleting functionality.
