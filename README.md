@@ -29,7 +29,7 @@ New orders should only be displayed on the page IF the POST request is successfu
 
 ### Iteration 4
 
-Write tests for the `OrderForm` and `App` views and user flows.
+Write tests for the `OrderForm` and `App` views and user flows. Be sure to stub the network requests.
 
 ## Extensions (only to be attempted if all prior iterations are complete)
 
