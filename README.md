@@ -4,8 +4,8 @@ Our company is building a prototype ticketing system for a local burrito shop. U
 
 ## Setup
 
-* Clone down this repo and change into the cloned down directory
-* Setup your own GitHub repo so you can push changes to your own profile
+* Fork this repo
+* Clone down your forked repo and change into the cloned down directory
 * Run `npm install` to install dependencies
 * Run `npm start` to start your development server
 
