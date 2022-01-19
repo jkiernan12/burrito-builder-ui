@@ -1,31 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import './App.css';
 import {getOrders} from '../../apiCalls';
 import Orders from '../../components/Orders/Orders';
 import OrderForm from '../../components/OrderForm/OrderForm';
 
-class App extends Component {
-  constructor(props) {
-    super();
-  }
+function App() {
+  const [orders, setOrders] = useState([])
 
-  componentDidMount() {
+  useEffect(() => {
     getOrders()
-      .catch(err => console.error('Error fetching:', err));
-  }
+    .then(data => setOrders(data.orders))
+    .catch(err => console.error('Error fetching:', err));
+  }, [])
 
-  render() {
-    return (
-      <main className="App">
-        <header>
-          <h1>Burrito Builder</h1>
-          <OrderForm />
-        </header>
+  useEffect(() => {
 
-        <Orders orders={this.state.orders}/>
-      </main>
-    );
-  }
+  }, [orders])
+
+  return (
+    <main className="App">
+      <header>
+        <h1>Burrito Builder</h1>
+        <OrderForm />
+      </header>
+      {console.log('here', orders.length)}
+      {orders.length > 0 && <Orders orders={orders}/>}
+    </main>
+  );
 }
 
 
