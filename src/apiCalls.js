@@ -13,3 +13,9 @@ export const postOrders = (data) => {
   })
   .then(res => res.json())
 }
+
+export const deleteOrdersFetch = (id) => {
+  return fetch('http://localhost:3001/api/v1/orders/' + id, {
+    method: 'DELETE',
+  }).then(res => res.json())
+} 
