@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {postOrders} from '../../apiCalls';
+
 
 class OrderForm extends Component {
   constructor(props) {
@@ -28,6 +30,7 @@ class OrderForm extends Component {
         name: this.state.name,
         ingredients: this.state.ingredients
       }
+      postOrders(newOrder)
       this.props.setOrders([...this.props.orders, newOrder])
       this.clearInputs();
     }
