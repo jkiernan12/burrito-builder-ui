@@ -59,6 +59,17 @@ describe('order submission', () => {
     .should('contain', 'hot sauce', 'sour cream')
   })
 
+  it('should not allow multiples of the same ingredient', () => {
+    cy.get('form').get('p')
+    .should('not.contain.text', 'sour cream', 'hot sauce')
+    .should('contain.text', 'Nothing selected')
+
+    cy.contains('sour cream').click().click()
+
+    cy.get('form').get('p')
+    .should('contain', 'sour cream').should('not.contain.text', 'sour cream, sour cream')
+  })
+
   it('should submit an order and clear inputs', () => {
     cy.get('input[type=text]').click().type('hungry robot')
     cy.contains('sour cream').click()

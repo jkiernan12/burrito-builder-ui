@@ -5,7 +5,6 @@ import {postOrders} from '../../apiCalls';
 class OrderForm extends Component {
   constructor(props) {
     super(props);
-    // this.props = props;
     this.state = {
       name: '',
       ingredients: []
@@ -18,8 +17,10 @@ class OrderForm extends Component {
 
   handleIngredientChange = (e) => {
     e.preventDefault()
-    const newIngredients = [...this.state.ingredients, e.target.name]
-    this.setState({ingredients: newIngredients})
+    if (!this.state.ingredients.includes(e.target.name)) {
+      const newIngredients = [...this.state.ingredients, e.target.name]
+      this.setState({ingredients: newIngredients})
+    }
   }
 
   handleSubmit = e => {
