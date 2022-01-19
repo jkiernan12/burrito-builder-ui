@@ -38,6 +38,9 @@ describe('order submission', () => {
       cy.intercept('POST', 'http://localhost:3001/api/v1/orders', {
         statusCode: 200,
       })
+      cy.intercept('DELETE', 'http://localhost:3001/api/v1/orders/*', {
+        statusCode: 200,
+      })
       cy.visit('http://localhost:3000/')
     })
   })
@@ -97,4 +100,18 @@ describe('order submission', () => {
 
     cy.get('.order').last().should('contain.text', 'hungry robot', 'sour cream', 'hot sauce')
   })
+
+  it('should be able to delete an order after submitting', () => {
+    cy.get('input[type=text]').click().type('hungry robot')
+    cy.contains('sour cream').click()
+    cy.contains('hot sauce').click()
+
+    cy.contains('Submit Order').click()
+
+    cy.get('.order').last().should('contain.text', 'hungry robot')
+    .contains('Delete').click()
+
+    cy.get('.order').last().should('not.contain.text', 'hungry robot')
+  })
+
 })
