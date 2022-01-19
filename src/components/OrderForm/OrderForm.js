@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class OrderForm extends Component {
   constructor(props) {
-    super();
-    this.props = props;
+    super(props);
+    // this.props = props;
     this.state = {
       name: '',
       ingredients: []
@@ -22,7 +22,15 @@ class OrderForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.clearInputs();
+    if (this.state.ingredients.length && this.state.name) {
+      const newOrder = {
+        id: this.props.orders.length + 1,
+        name: this.state.name,
+        ingredients: this.state.ingredients
+      }
+      this.props.setOrders([...this.props.orders, newOrder])
+      this.clearInputs();
+    }
   }
 
   clearInputs = () => {

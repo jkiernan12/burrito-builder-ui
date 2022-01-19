@@ -21,10 +21,9 @@ function App() {
     <main className="App">
       <header>
         <h1>Burrito Builder</h1>
-        <OrderForm />
+        <OrderForm orders={orders} setOrders={setOrders} />
       </header>
-      {console.log('here', orders.length)}
-      {orders.length > 0 && <Orders orders={orders}/>}
+      {orders.length > 0 && <Orders orders={orders} />}
     </main>
   );
 }
