@@ -2,7 +2,16 @@
 
 describe('page content', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.fixture('./orders.json').then(orders => {
+      cy.intercept('GET', 'http://localhost:3001/api/v1/orders', {
+        statusCode: 200,
+        body: orders
+      })
+      cy.intercept('POST', 'http://localhost:3001/api/v1/orders', {
+        statusCode: 200,
+      })
+      cy.visit('http://localhost:3000/')
+    })
   })
 
   it('should have a title', () => {
@@ -21,7 +30,16 @@ describe('page content', () => {
 
 describe('order submission', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.fixture('./orders.json').then(orders => {
+      cy.intercept('GET', 'http://localhost:3001/api/v1/orders', {
+        statusCode: 200,
+        body: orders
+      })
+      cy.intercept('POST', 'http://localhost:3001/api/v1/orders', {
+        statusCode: 200,
+      })
+      cy.visit('http://localhost:3000/')
+    })
   })
 
   it('should be able to modify name input', () => {
@@ -47,12 +65,25 @@ describe('order submission', () => {
     cy.contains('hot sauce').click()
 
     cy.get('form').get('p')
-    .should('contain', 'hot sauce', 'sour cream')
 
     cy.contains('Submit Order').click()
 
     cy.get('input[type=text]').should('have.value', '')
     cy.get('form p').should('not.contain.text', 'hot sauce', 'sour cream')
     .should('contain.text', 'Nothing selected')
+  })
+
+  it('should submit an order and appear on the page', () => {
+    cy.get('input[type=text]').click().type('hungry robot')
+    cy.contains('sour cream').click()
+    cy.contains('hot sauce').click()
+
+    cy.get('form').get('p')
+
+    cy.get('.order').last().should('not.contain.text', 'hungry robot')
+
+    cy.contains('Submit Order').click()
+
+    cy.get('.order').last().should('contain.text', 'hungry robot', 'sour cream', 'hot sauce')
   })
 })
